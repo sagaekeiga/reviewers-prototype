@@ -1,0 +1,13 @@
+%nav.navbar.navbar-default
+  .container-fluid
+    .navbar-header
+      = link_to 'Reviewers-prototype', root_path, class: 'navbar-brand'
+
+    .collapse.navbar-collapse
+      %ul.nav.navbar-nav
+        %li
+          = link_to 'プロフィール', edit_engineer_registration_path
+        %li
+          = link_to 'Skill', edit_engineers_skill_path(current_engineer.id)
+        %li
+          = link_to 'ログアウト', destroy_engineer_session_path, method: :delete

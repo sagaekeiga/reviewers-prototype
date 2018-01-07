@@ -1,0 +1,140 @@
+ja:
+  helpers:
+    label:
+      user:
+        remember_me: "ログイン情報を保持する"
+        log_in: ログイン
+        log_out: ログアウト
+        sign_up: 新規登録
+  errors:
+    messages:
+      not_found: "は見つかりませんでした"
+      already_confirmed: "は既に登録済みです"
+      not_locked: "は凍結されていません"
+      not_saved: "%{resource}を保存できませんでした（%{count}件の入力エラーがあります）"
+
+  users:
+    finish_signup:
+      title: メールアドレスを入力して登録を完了しましょう
+      description: 連携したSNSからメールアドレスが取得できませんでしたので、以下のフォームに入力して「次に進む」を押してください。
+      helps:
+        email: よく利用されるメールアドレスを入力してください
+      placeholders:
+        email: 例). email@me.com
+
+    profile:
+      title: プロフィール情報
+      basic_info: 基本情報
+      connected_services: 外部サービス連携
+      connected: 連携済み
+      not_connected: 未連携
+
+    mailer:
+      confirmation_instructions:
+        subject: 【シェアダイン】メール内のリンクをクリックしてください
+      confirmation_on_create_instructions:
+        subject: 【シェアダイン】メール内のリンクをクリックしてください
+      reset_password_instructions:
+        greeting: "こんにちは %{recipient} さん"
+        instruction: お使いのアカウントのパスワードをリセットする要求を承りました。以下のリンクからパスワードの変更を行うことができます。
+        change_my_password: パスワードを変更する
+        please_ignore: 上記要求に身に覚えがない場合にはこのメールは無視して問題ございません。
+        wont_change: 上記リンクからパスワードを変更しない限り、現在登録されているパスワードが変更されることはございません。
+      # unlock_instructions:
+      #   subject: 'アカウントの凍結解除'
+
+  chefs:
+    finish_signup:
+      title: メールアドレスを入力して登録を完了しましょう
+      description: 連携したSNSからメールアドレスが取得できませんでしたので、以下のフォームに入力して「次に進む」を押してください。
+      helps:
+        email: よく利用されるメールアドレスを入力してください
+      placeholders:
+        email: 例). email@me.com
+
+    profile:
+      title: プロフィール情報
+      basic_info: 基本情報
+      connected_services: 外部サービス連携
+      connected: 連携済み
+      not_connected: 未連携
+
+    mailer:
+      confirmation_instructions:
+        subject: 【シェアダイン】メール内のリンクをクリックしてください
+      confirmation_on_create_instructions:
+        subject: 【シェアダイン】メール内のリンクをクリックしてください
+      reset_password_instructions:
+        greeting: "こんにちは %{recipient} さん"
+        instruction: お使いのアカウントのパスワードをリセットする要求を承りました。以下のリンクからパスワードの変更を行うことができます。
+        change_my_password: パスワードを変更する
+        please_ignore: 上記要求に身に覚えがない場合にはこのメールは無視して問題ございません。
+        wont_change: 上記リンクからパスワードを変更しない限り、現在登録されているパスワードが変更されることはございません。
+      # unlock_instructions:
+      #   subject: 'アカウントの凍結解除'
+
+  devise:
+    failure:
+      unauthenticated: 'ログインしてください。'
+      unconfirmed: '本登録を行ってください。'
+      locked: 'あなたのアカウントは凍結されています。'
+      invalid: 'メールアドレスかパスワードが違います。'
+      invalid_token: '認証キーが不正です。'
+      timeout: 'セッションがタイムアウトしました。もう一度ログインしてください。'
+      inactive: 'アカウントがアクティベートされていません。'
+      not_found_in_database: 'メールアドレスかパスワードが間違っています'
+    sessions:
+      signed_in: 'ログインしました。'
+      signed_out: 'ログアウトしました。'
+      chef:
+        already_signed_out: ログアウトしました
+      user:
+        already_signed_out: ログアウトしました
+    passwords:
+      send_instructions: 'パスワードのリセット方法を数分以内にメールでご連絡します。'
+      updated: 'パスワードを変更しました。'
+    confirmations:
+      send_instructions: '登録方法を数分以内にメールでご連絡します。'
+      confirmed: 'アカウントを登録しました。'
+    reconfirmations:
+      unconfirmed: "%{unconfirmed_email}のメール確認を行ってください"
+    registrations:
+      signed_up: 'アカウント登録を受け付けました。確認のメールをお送りします。'
+      updated: 'アカウントを更新しました。'
+      destroyed: 'アカウントを削除しました。またのご利用をお待ちしております。'
+      update_needs_confirmation: 'アカウント情報を変更しました。変更されたメールアドレスの本人確認のため、本人確認用メールより確認処理をおこなってください。'
+    unlocks:
+      send_instructions: 'アカウントの凍結解除方法を数分以内にメールでご連絡します。'
+      unlocked: 'アカウントを凍結解除しました。'
+    mailer:
+      confirmation_instructions:
+        subject: 'アカウントの登録方法'
+      reset_password_instructions:
+        subject: 'パスワードの再設定'
+      unlock_instructions:
+        subject: 'アカウントの凍結解除'
+    omniauth_callbacks:
+      user:
+        success: ログインしました
+      staff:
+        success: ログインしました
+        failure: アクセス権限がありません
+      chef:
+        success: ログインしました
+
+  omniauth:
+    providers:
+      twitter: Twitter
+      facebook: Facebook
+      google_oauth2: Google
+      twitter_with_icon_html: "<i class='fa fa-twitter'></i> Twitter"
+      facebook_with_icon_html: "<i class='fa fa-facebook-official'></i> Facebook"
+      google_oauth2_with_icon_html: "<i class='fa fa-google'></i> Google"
+    omniauth_callbacks:
+      user:
+        success: ログインしました
+      staff:
+        success: ログインしました
+        failure: アクセス権限がありません
+      chef:
+        success: ログインしました

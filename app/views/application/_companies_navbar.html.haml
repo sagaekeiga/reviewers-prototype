@@ -1,0 +1,9 @@
+%nav.navbar.navbar-expand-lg.navbar-light.bg-light
+  %a{ class: 'navbar-brand', href: '#' } Navbar
+
+  #navbarSupportedContent.collapse.navbar-collapse
+    %ul.navbar-nav.mr-auto
+      %li.nav-item
+        = link_to 'プロフィール変更', '', class: 'nav-link'
+      %li.nav-item
+        = link_to 'ログアウト', '', method: :delete, class: 'nav-link'

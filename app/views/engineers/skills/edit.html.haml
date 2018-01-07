@@ -1,0 +1,22 @@
+= form_for(@engineer, url: { controller: :skills, action: :update }, html: { class: 'form-horizontal', role: 'form' }) do |f|
+  - if @engineer.errors.any?
+    .alert.alert-danger.alert-dismissable{ role: 'alert' }
+      %button.close{ type: 'button', data: { dismiss: 'alert' } }
+        %span{ aria: { hidden: 'true' } } &times;
+        %span.sr-only Close
+      %h4= "#{pluralize(@engineer.errors.count, t('.errors'))}"
+
+      %ul
+        - @engineer.errors.full_messages.each do |msg|
+          %li= msg
+
+  .col-xs-12
+    .panel.panel-default
+      .panel-body
+        .form-group
+          = f.label :skill_list, "スキル", class: 'col-sm-2 control-label'
+          .col-sm-10
+            = f.text_field :skill_list, 'data-role': 'tagsinput', class: 'form-control'
+        .form-group
+          .col-sm-offset-2.col-sm-10
+            = f.submit class: 'btn btn-primary'

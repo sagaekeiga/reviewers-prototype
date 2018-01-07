@@ -3,22 +3,26 @@
   %head
     %meta{ content: 'text/html; charset=UTF-8', 'http-equiv': 'Content-Type' }/
     %meta{ name: 'viewport', content: 'width=device-width, initial-scale=1.0' }
-    %title reviewers-prototype
+    %title ReviewersPrototype
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    %header
-      %nav
-        - if user_signed_in?
-          %strong
-            = link_to 'プロフィール変更', edit_user_registration_path
-            = link_to 'ログアウト', destroy_user_session_path, method: :delete
-        - else
-          = link_to 'サインアップ', new_user_registration_path
-          = link_to 'ログイン', new_user_session_path
+    - if engineer_signed_in?
+      = render 'engineers_navbar'
+    - elsif company_signed_in?
+      = render 'company_navbar'
+    - else
+      = render 'navbar'
 
-    - !content_for?(:flash) && flash && flash.each do |key, message|
-      .alert{ class: "alert-key", role: 'alert' }
-        %strong= message
+    .container-fluid.col-xs-12
+      - !content_for?(:flash) && flash && flash.each do |key, message|
+        .alert{ class: "alert-key", role: 'alert' }
+          %strong= message
+      - if engineer_signed_in?
+        = render 'engineers_body'
+      - elsif company_signed_in?
+        = render 'company_body'
+      - else
+        = render 'body'
     = yield

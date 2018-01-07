@@ -104,7 +104,7 @@ gem 'httparty'
 gem 'sidekiq'
 gem 'audited'
 gem 'acts-as-taggable-on'
-gem 'factory_bot'
+gem 'factory_bot_rails'
 gem 'bootstrap-generators'
 gem 'faker'
 gem 'faker-japanese'
@@ -113,6 +113,9 @@ gem 'i18n-tasks'
 gem 'google-analytics-rails'
 gem 'dotenv-rails'
 gem 'honoka-rails'
+gem 'bootstrap-tagsinput-rails'
+
+
 group :development, :test do
   gem 'timecop'
   gem 'rspec'

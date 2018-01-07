@@ -1,0 +1,15 @@
+%h1 Skillの登録
+.panel.panel-default
+  .panel-body
+    .col-sm-2.control-label スキル
+    .col-sm-10
+      - current_engineer.skill_list.each do |skill|
+        %span.label.label-primary= skill
+
+%h1 レコメンド
+.panel.panel-default
+  .panel-body
+    .col-sm-2.control-label スキル
+    .col-sm-10
+      - current_engineer.skill_list.each do |skill|
+        %span.label.label-primary= skill

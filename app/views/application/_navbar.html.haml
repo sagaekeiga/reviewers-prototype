@@ -1,0 +1,11 @@
+%nav.navbar.navbar-default
+  .container-fluid
+    .navbar-header
+      %a{ class: 'navbar-brand', href: '#' } Reviewers-prototype
+
+    .collapse.navbar-collapse
+      %ul.nav.navbar-nav
+        %li
+          = link_to 'Sign Up', new_engineer_registration_path
+        %li
+          = link_to 'Sign In', new_engineer_session_path

@@ -18,10 +18,12 @@
 #= require bootstrap-sprockets
 #= require bootstrap-fileinput
 #= require bootstrap-fileinput/locales/ja
+#= require bootstrap-tagsinput
+#= require jquery
+#= require jquery.turbolinks
 #= require moment
 #= require moment/locale/ja
 #= require cocoon
-#= require turbolinks
 #= require_tree .
 
 # こちらはページ遷移する度に呼ばれる（初回ページ読み込み時も含む）
