@@ -4,8 +4,12 @@ class DeviseCreateEngineers < ActiveRecord::Migration[5.1]
   def change
     create_table :engineers do |t|
       ## Database authenticatable
-      t.string :email,              null: false, default: ""
-      t.string :encrypted_password, null: false, default: ""
+      t.string :name,              null: false, default: ''
+      t.string :provider,              null: false, default: ''
+      t.text :uid,              null: false, default: ''
+      t.string :oauth_token,              null: false, default: ''
+      t.string :email,              null: false, default: ''
+      t.string :encrypted_password, null: false, default: ''
 
       ## Recoverable
       t.string   :reset_password_token

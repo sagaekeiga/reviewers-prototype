@@ -11,7 +11,7 @@
     - if engineer_signed_in?
       = render 'engineers_navbar'
     - elsif company_signed_in?
-      = render 'company_navbar'
+      = render 'companies_navbar'
     - else
       = render 'navbar'
 
@@ -22,7 +22,7 @@
       - if engineer_signed_in?
         = render 'engineers_body'
       - elsif company_signed_in?
-        = render 'company_body'
+        = render 'companies_body'
       - else
         = render 'body'
     = yield
