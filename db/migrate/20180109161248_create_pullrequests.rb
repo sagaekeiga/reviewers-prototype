@@ -1,7 +1,8 @@
 class CreatePullrequests < ActiveRecord::Migration[5.1]
   def change
     create_table :pullrequests do |t|
-      t.integer :pull_id
+      t.references :company, foreign_key: true
+      t.integer :pull_request_id
       t.string :title
       t.string :url
       t.string :html_url

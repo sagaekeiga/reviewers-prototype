@@ -1,0 +1,2 @@
+module Companies::PullrequestsHelper
+end

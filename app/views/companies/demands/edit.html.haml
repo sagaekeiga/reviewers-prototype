@@ -1,0 +1,31 @@
+.row
+  .col-xs-12
+    = form_for(current_company, url: { controller: :demands, action: :update }, html: { class: 'form-horizontal', role: 'form' }) do |f|
+      - if current_company.errors.any?
+        .alert.alert-danger.alert-dismissable{ role: 'alert' }
+          %button.close{ type: 'button', data: { dismiss: 'alert' } }
+            %span{ aria: { hidden: 'true' } } &times;
+            %span.sr-only Close
+          %h4= "#{pluralize(current_company.errors.count, t('.errors'))}"
+
+          %ul
+            - current_company.errors.full_messages.each do |msg|
+              %li= msg
+
+      = f.fields_for :demand do |demand_f|
+        .form-group
+          = demand_f.label :note, class: 'col-xs-12 col-sm-3 control-label'
+          .col-sm-9= demand_f.text_area :note, class: 'form-control'
+
+      .form-group
+        .col-xs-12
+          %hr
+
+      .form-group
+        .col-sm-4.col-sm-offset-2.col-xs-12
+          = f.submit class: 'btn btn-primary btn-block'
+          %br.visible-xs-block.visible-sm-block
+          .m-b-2
+
+        .col-sm-4.col-xs-12
+          = link_to t('.cancel', default: t("helpers.links.cancel")), root_path, class: 'btn btn-default btn-block'

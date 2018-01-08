@@ -5,11 +5,11 @@
     .col-sm-10
       - current_engineer.skill_list.each do |skill|
         %span.label.label-primary= skill
-
 %h1 レコメンド
 .panel.panel-default
   .panel-body
-    .col-sm-2.control-label スキル
+    .col-sm-2.control-label 詳細
     .col-sm-10
-      - current_engineer.skill_list.each do |skill|
-        %span.label.label-primary= skill
+      %ul.list-group
+      - Company.first.pullrequests.each do |pullrequest|
+        %li.list-group-item= link_to "#{pullrequest.url}", engineers_pullrequest_path(pullrequest.id)

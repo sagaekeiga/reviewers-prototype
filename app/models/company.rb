@@ -26,6 +26,9 @@ class Company < ApplicationRecord
   # Relations
   # -------------------------------------------------------------------------------
   has_one :identity, class_name: 'Companies::Identity'
+  has_one :demand, class_name: 'Companies::Demand'
+  accepts_nested_attributes_for :demand
+  has_many :pullrequests
 
   def self.find_for_oauth(env)
     auth   = env['omniauth.auth']
@@ -41,6 +44,7 @@ class Company < ApplicationRecord
       )
       # company.skip_confirmation!
       company.save!
+      company.build_demand.save
     end
 
     if identity.company != company

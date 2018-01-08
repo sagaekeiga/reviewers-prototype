@@ -2,10 +2,11 @@
 #
 # Table name: engineers_profiles
 #
-#  id         :integer          not null, primary key
-#  operation  :boolean
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id          :integer          not null, primary key
+#  engineer_id :integer
+#  operation   :boolean
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
 #
 
 require 'rails_helper'

@@ -27,6 +27,10 @@ FactoryBot.define do
     password 'hogehoge'
     password_confirmation 'hogehoge'
 
+    after(:build) do |engineer|
+      engineer.profile ||= build(:engineers_profile, engineer: engineer)
+    end
+    
     # スキル
     after(:create) do |engineer|
       engineer.skill_list.add('rails', 'ruby', 'java')

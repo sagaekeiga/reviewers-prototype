@@ -1,0 +1,15 @@
+- if current_company.demand
+  %h1 要望
+  .panel.panel-default
+    .panel-body
+      .col-sm-2.control-label 詳細
+      .col-sm-10
+        = current_company.demand.note
+%h1 Pullrquest
+.panel.panel-default
+  .panel-body
+    .col-sm-2.control-label 詳細
+    .col-sm-10
+      %ul.list-group
+      - current_company.pullrequests.each do |pullrequest|
+        %li.list-group-item= link_to "#{pullrequest.url}", companies_pullrequest_path(pullrequest.id)
