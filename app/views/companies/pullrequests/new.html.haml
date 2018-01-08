@@ -1,0 +1,31 @@
+.row
+  .col-xs-12
+    = form_for [:companies, @pullrequest], html: { class: 'form-horizontal', role: 'form' } do |f|
+
+      - if @pullrequest.errors.any?
+        .alert.alert-danger.alert-dismissable{ role: 'alert' }
+          %button.close{ type: 'button', data: { dismiss: 'alert' } }
+            %span{ aria: { hidden: 'true' } } &times;
+            %span.sr-only Close
+          %h4= "#{pluralize(@pullrequest.errors.count, t('.errors'))}"
+
+          %ul
+            - @pullrequest.errors.full_messages.each do |msg|
+              %li= msg
+
+      .form-group
+        = f.label :url, class: 'col-xs-12 col-sm-3 control-label'
+        .col-sm-9= f.text_field :url, class: 'form-control'
+
+      .form-group
+        .col-xs-12
+          %hr
+
+      .form-group
+        .col-sm-4.col-sm-offset-2.col-xs-12
+          = f.submit class: 'btn btn-primary btn-block'
+          %br.visible-xs-block.visible-sm-block
+          .m-b-2
+
+        .col-sm-4.col-xs-12
+          = link_to t('.cancel', default: t("helpers.links.cancel")), root_path, class: 'btn btn-default btn-block'

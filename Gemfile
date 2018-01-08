@@ -114,7 +114,8 @@ gem 'google-analytics-rails'
 gem 'dotenv-rails'
 gem 'honoka-rails'
 gem 'bootstrap-tagsinput-rails'
-
+gem 'octokit', '~> 4.0'
+gem 'omniauth-github'
 
 group :development, :test do
   gem 'timecop'

@@ -11,18 +11,7 @@
     - if engineer_signed_in?
       = render 'engineers_navbar'
     - elsif company_signed_in?
-      = render 'company_navbar'
+      = render 'companies_navbar'
     - else
       = render 'navbar'
-
-    .container-fluid.col-xs-12
-      - !content_for?(:flash) && flash && flash.each do |key, message|
-        .alert{ class: "alert-key", role: 'alert' }
-          %strong= message
-      - if engineer_signed_in?
-        = render 'engineers_body'
-      - elsif company_signed_in?
-        = render 'company_body'
-      - else
-        = render 'body'
     = yield

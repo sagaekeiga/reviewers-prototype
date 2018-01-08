@@ -10,4 +10,9 @@
         %li
           = link_to 'Skill', edit_engineers_skill_path(current_engineer.id)
         %li
+          - if current_engineer.profile.operation == true
+            = link_to '稼働中', engineers_operations_path, method: :post, class: 'btn btn-danger'
+          - else
+            = link_to '待機中', engineers_operations_path, method: :post, class: 'btn btn-primary'
+        %li
           = link_to 'ログアウト', destroy_engineer_session_path, method: :delete

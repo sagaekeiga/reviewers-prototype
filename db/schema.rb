@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180107152014) do
+ActiveRecord::Schema.define(version: 20180109161249) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,7 +32,34 @@ ActiveRecord::Schema.define(version: 20180107152014) do
     t.index ["reset_password_token"], name: "index_companies_on_reset_password_token", unique: true
   end
 
+  create_table "companies_demands", force: :cascade do |t|
+    t.bigint "company_id"
+    t.text "note"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_companies_demands_on_company_id"
+  end
+
+  create_table "companies_identities", force: :cascade do |t|
+    t.bigint "company_id"
+    t.string "provider"
+    t.string "uid"
+    t.string "token"
+    t.string "email"
+    t.string "name"
+    t.string "image"
+    t.datetime "deleted_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_companies_identities_on_company_id"
+    t.index ["deleted_at"], name: "index_companies_identities_on_deleted_at"
+  end
+
   create_table "engineers", force: :cascade do |t|
+    t.string "name", default: "", null: false
+    t.string "provider", default: "", null: false
+    t.text "uid", default: "", null: false
+    t.string "oauth_token", default: "", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -47,6 +74,45 @@ ActiveRecord::Schema.define(version: 20180107152014) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_engineers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_engineers_on_reset_password_token", unique: true
+  end
+
+  create_table "engineers_profiles", force: :cascade do |t|
+    t.bigint "engineer_id"
+    t.boolean "operation"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["engineer_id"], name: "index_engineers_profiles_on_engineer_id"
+  end
+
+  create_table "pullrequests", force: :cascade do |t|
+    t.bigint "company_id"
+    t.integer "pull_request_id"
+    t.string "title"
+    t.string "url"
+    t.string "html_url"
+    t.string "diff_url"
+    t.string "patch_url"
+    t.string "issue_url"
+    t.string "commits_url"
+    t.string "review_comments_url"
+    t.string "review_comment_url"
+    t.string "comments_url"
+    t.string "statuses_url"
+    t.string "number"
+    t.string "state"
+    t.string "body"
+    t.string "events_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_pullrequests_on_company_id"
+  end
+
+  create_table "pulls", force: :cascade do |t|
+    t.bigint "pull_id"
+    t.string "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pull_id"], name: "index_pulls_on_pull_id"
   end
 
   create_table "taggings", id: :serial, force: :cascade do |t|
@@ -74,4 +140,9 @@ ActiveRecord::Schema.define(version: 20180107152014) do
     t.index ["name"], name: "index_tags_on_name", unique: true
   end
 
+  add_foreign_key "companies_demands", "companies"
+  add_foreign_key "companies_identities", "companies"
+  add_foreign_key "engineers_profiles", "engineers"
+  add_foreign_key "pullrequests", "companies"
+  add_foreign_key "pulls", "pulls"
 end

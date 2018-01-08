@@ -3,6 +3,10 @@
 # Table name: engineers
 #
 #  id                     :integer          not null, primary key
+#  name                   :string           default(""), not null
+#  provider               :string           default(""), not null
+#  uid                    :text             default(""), not null
+#  oauth_token            :string           default(""), not null
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
 #  reset_password_token   :string
@@ -25,4 +29,9 @@ class Engineer < ApplicationRecord
 
   acts_as_taggable_on :skills
   acts_as_taggable
+
+  # -------------------------------------------------------------------------------
+  # Relations
+  # -------------------------------------------------------------------------------
+  has_one :profile, class_name: 'Engineers::Profile'
 end

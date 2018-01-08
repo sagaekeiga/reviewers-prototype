@@ -1,0 +1,67 @@
+%h1 Pullrquest
+.row
+  .col-xs-12
+    .panel.panel-default
+      .panel-body
+        %table.table.table-bordered
+          %tbody
+            %tr
+              %th{ scope: 'row' } 番号
+              %td= @pr[:number]
+            %tr
+              %th{ scope: 'row' } ステータス
+              %td= @pr[:state]
+            %tr
+              %th{ scope: 'row' } タイトル
+              %td= @pr[:title]
+            %tr
+              %th{ scope: 'row' } 送信アカウント
+              %td= @pr[:user][:login]
+            %tr
+              %th{ scope: 'row' } 内容
+              %td= @pr[:body]
+            %tr
+              %th{ scope: 'row' } 作成日
+              %td= @pr[:created_at]
+            %tr
+              %th{ scope: 'row' } 更新日
+              %td= @pr[:updated_at]
+            %tr
+              %th{ scope: 'row' } クローズ日
+              %td= @pr[:closed_at]
+            %tr
+              %th{ scope: 'row' } マージ日
+              %td= @pr[:merged_at]
+            %tr
+              %th{ scope: 'row' } マージコミットハッシュ
+              %td= @pr[:merge_commit_sha]
+            %tr
+              %th{ scope: 'row' } アサイニー
+              %td= @pr[:assignee]
+            %tr
+              %th{ scope: 'row' } 元ブランチ名
+              %td= @pr[:head][:label]
+            %tr
+              %th{ scope: 'row' } マージ済
+              %td= @pr[:merged]
+            %tr
+              %th{ scope: 'row' } コメント数
+              %td= @pr[:comments]
+            %tr
+              %th{ scope: 'row' } レビューコメント数
+              %td= @pr[:review_comments]
+            %tr
+              %th{ scope: 'row' } コミット数
+              %td= @pr[:commits]
+            %tr
+              %th{ scope: 'row' } 追加コード行数
+              %td= @pr[:additions]
+            %tr
+              %th{ scope: 'row' } 削除コード行数
+              %td= @pr[:deletions]
+            %tr
+              %th{ scope: 'row' } 変更ファイル数
+              %td= @pr[:changed_files]
+            %tr
+              %th{ scope: 'row' } URL
+              %td= @pr[:_links][:html][:href]

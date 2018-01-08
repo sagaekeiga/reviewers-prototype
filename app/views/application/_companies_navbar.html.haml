@@ -1,9 +1,13 @@
-%nav.navbar.navbar-expand-lg.navbar-light.bg-light
-  %a{ class: 'navbar-brand', href: '#' } Navbar
+%nav.navbar.navbar-default
+  .container-fluid
+    .navbar-header
+      = link_to 'Reviewers-prototype', root_path, class: 'navbar-brand'
 
-  #navbarSupportedContent.collapse.navbar-collapse
-    %ul.navbar-nav.mr-auto
-      %li.nav-item
-        = link_to 'プロフィール変更', '', class: 'nav-link'
-      %li.nav-item
-        = link_to 'ログアウト', '', method: :delete, class: 'nav-link'
+    .collapse.navbar-collapse
+      %ul.nav.navbar-nav
+        %li
+          = link_to '要望入力', edit_companies_demand_path(current_company.id), class: 'nav-link'
+        %li
+          = link_to 'PullRequest', new_companies_pullrequest_path, class: 'nav-link'
+        %li
+          = link_to 'ログアウト', destroy_company_session_path, method: :delete, class: 'nav-link'
